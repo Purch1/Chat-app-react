@@ -18,9 +18,9 @@ function SignUp() {
     setInputs({ ...inputs, gender });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(inputs)
+    await signup(inputs);
   };
 
   return (
@@ -61,7 +61,7 @@ function SignUp() {
               }
             />
           </div>
-          
+
           <div>
             <label className="label p-2">
               <span className="text-base">Email</span>
@@ -71,9 +71,7 @@ function SignUp() {
               placeholder="johndoe"
               className="w-full input input-bordered h-10"
               value={inputs.email}
-              onChange={(e) =>
-                setInputs({ ...inputs, email: e.target.value })
-              }
+              onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
             />
           </div>
 
@@ -120,7 +118,16 @@ function SignUp() {
           </Link>
 
           <div>
-            <button className="btn btn-block btn-sm mt-2">Sign Up</button>
+            <button
+              className="btn btn-block btn-sm mt-2 border-slate-700"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className=" loading loading-spinner"></span>
+              ) : (
+                "Sign Up"
+              )}
+            </button>
           </div>
         </form>
       </div>
